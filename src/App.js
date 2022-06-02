@@ -164,6 +164,41 @@ function App() {
 
               </label>
             </div>
+            <div className="form-control w-full max-w-xs">
+              <label className="label">
+                <span className="label-text">PAN Card Number</span>
+
+              </label>
+
+              <input
+                placeholder="PAN Card Number"
+
+
+                className="input input-bordered w-full max-w-xs"
+                {...register("pancard", {
+
+                  required: {
+                    value: true,
+                    message: 'PAN card number is reqired'
+                  },
+
+                  pattern: {
+                    value: /[A-Z]{5}[0-9]{4}[A-Z]{1}/,
+                    message: 'Please Provied a Valid PAN Card Number',
+                  }
+                })}
+
+
+              />
+
+
+              <label className="label">
+                {errors.pancard?.type === 'required' && <span className="label-text-alt  text-red-500 text-sm">{errors.pancard.message}</span>}
+                {errors.pancard?.type === 'pattern' && <span className="label-text-alt  text-red-500 text-sm">{errors.pancard.message}</span>}
+
+
+              </label>
+            </div>
 
 
 
